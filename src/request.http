@@ -1,0 +1,15 @@
+### set /kv
+POST http://localhost:3000/kv
+Content-Type: application/json
+
+{
+    "user:me": "Ayush Mhetre",
+}
+
+
+### get /kv
+GET http://localhost:3000/kv
+
+
+### Test
+GET http://localhost:3000

@@ -24,9 +24,10 @@
     "baseUrl": ".",
     "paths": {
       "@src/*": ["src/*"],
-      "@constants/*": ["constants/*"]
+      "@constants/*": ["constants/*"],
+      "@lib/*": ["lib/*"]
     }
   },
   "exclude": ["node_modules"],
-  "include": ["./src/**/*.ts"]
+  "include": ["./**/*.ts"]
 }
