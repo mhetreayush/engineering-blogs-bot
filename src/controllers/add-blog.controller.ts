@@ -1,11 +1,8 @@
 import { UNREAD_KEY } from '@src/constants/key-value-store-keys';
+import { shuffleBlogs } from '@src/helpers/shuffle-blogs';
 import { kvClient } from '@src/lib/vercel-kv';
 import type { Blog } from '@src/types/blog';
 import { Request, Response } from 'express';
-
-const shuffleBlogs = (blogs: Blog[]) => {
-  return blogs.sort(() => Math.random() - 0.5);
-};
 
 export const addBlogController = async (req: Request, res: Response) => {
   const { blogUrl, blogName } = req.body;
