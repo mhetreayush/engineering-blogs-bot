@@ -18,6 +18,12 @@ app.use(bodyParser.json());
 const { PORT, BASE_URL } = ENV;
 
 app.use(blogRouter);
+app.get('/keep-me-alive', (req, res) => {
+  const now = new Date();
+  const message = `I am alive! ${now.toISOString()}`;
+  console.log(message);
+  res.send(message);
+});
 
 keepServerAlive();
 
