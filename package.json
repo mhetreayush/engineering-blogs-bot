@@ -3,9 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon",
-    "eslint:fix": "eslint --fix"
+    "eslint:fix": "eslint --fix",
+    "start": "node dist/index.js",
+    "start:dev": "nodemon",
+    "start:prod": "node -r ts-node/register -r tsconfig-paths/register ./dist/src/index.js",
+    "dev": "yarn start:dev",
+    "build": "npm run clean && tsc --build ",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "lint": "npm run lint:check",
+    "lint:check": "eslint ./src/**/*.{ts,test.ts}",
+    "lint:fix": "eslint ./src/**/*.{ts,test.ts} --quiet --fix ",
+    "test": "jest --runInBand"
   },
   "keywords": [],
   "author": "mhetreayush",
