@@ -1,14 +1,11 @@
 import { ENV } from '@src/constants/env';
 import { blogRouter } from '@src/routes/blog-router';
-import axios from 'axios';
 import bodyParser from 'body-parser';
 import { Express } from 'express';
 import express from 'express';
-import cron from 'node-cron'; // Import node-cron here
 
-import { sendDailyBlog } from './utils/send-daily-blog.controller';
-
-const MINUTE = 1000 * 60;
+import { createCronSchedules } from './utils/create-cron-schedules';
+import { keepServerAlive } from './utils/keep-server-alive';
 
 const app: Express = express();
 
@@ -27,19 +24,9 @@ app.get('/keep-me-alive', (req, res) => {
   res.send(message);
 });
 
-// Schedule the job to run at 7:30 AM IST every day
-cron.schedule('30 1 * * *', () => {
-  // 1 AM UTC is 7:30 AM IST
-  console.log('Running scheduled task to send WhatsApp message...');
-  sendDailyBlog();
-});
+createCronSchedules(); // Call the function to create cron schedules
 
-if (ENV.NODE_ENV === 'production') {
-}
-
-setInterval(() => {
-  axios.get(`${ENV.BASE_URL}${ENV.NODE_ENV === 'production' ? '' : `:${ENV.PORT}`}/keep-me-alive`);
-}, MINUTE * 5); // Logs message every 5 minutes
+keepServerAlive();
 
 // Start the Express server
 app.listen(PORT, () => {
