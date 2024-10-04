@@ -24,9 +24,11 @@
     "baseUrl": ".",
     "paths": {
       "@src/*": ["src/*"],
-      "@constants/*": ["constants/*"],
-      "@lib/*": ["lib/*"],
-      "@middlewares/*": ["middlewares/*"]
+      "@constants/*": ["src/constants/*"],
+      "@lib/*": ["src/lib/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@routes/*": ["src/routes/*"],
+      "@types/*": ["src/types/*"]
     }
   },
   "exclude": ["node_modules"],

@@ -1,5 +1,5 @@
+import { ENV } from '@src/constants/env';
 import { createClient } from '@vercel/kv';
-import { ENV } from '@constants/env';
 
 export const kvClient = createClient({
   token: ENV.KV_REST_API_TOKEN,
