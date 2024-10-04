@@ -10,10 +10,14 @@ export const sendDailyBlog = async () => {
     const message = `*${randomBlog.blogName}*\n\n${randomBlog.blogUrl}`;
 
     // Send the message using the WhatsApp API
-    await sendWhatsAppMessage({
+    const { success } = await sendWhatsAppMessage({
       recipient_number: WHATSAPP_RECIPIENT_NUMBER,
       message,
     });
+    if (!success) {
+      throw new Error('Error sending WhatsApp message');
+    }
+
     console.log('Message sent successfully:', message);
   } catch (error) {
     console.error('Error sending WhatsApp message:', error);

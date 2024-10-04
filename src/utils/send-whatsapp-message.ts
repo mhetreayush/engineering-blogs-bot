@@ -20,16 +20,20 @@ export const sendWhatsAppMessage = async ({ recipient_number, message }: { recip
   };
 
   try {
-    const response = await axios.post(url, data, {
+    await axios.post(url, data, {
       headers: {
         Authorization: `Bearer ${WHATSAPP_API_ACCESS_TOKEN}`,
         'Content-Type': 'application/json',
       },
     });
 
-    return response; // Return the response
+    return {
+      success: true,
+    };
   } catch (error) {
     console.error('Error sending WhatsApp message:', error.response?.data || error.message);
-    throw new Error(error.response?.data || error.message); // Throw an error to be handled in the calling function
+    return {
+      success: false,
+    };
   }
 };
