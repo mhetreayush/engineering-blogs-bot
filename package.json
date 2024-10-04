@@ -1,0 +1,28 @@
+{
+  "name": "engineering-blogs-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon",
+    "eslint:fix": "eslint --fix"
+  },
+  "keywords": [],
+  "author": "mhetreayush",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "eslint": "^9.11.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@vercel/kv": "^3.0.0",
+    "express": "^4.21.0",
+    "tsconfig-paths": "^4.2.0"
+  }
+}
