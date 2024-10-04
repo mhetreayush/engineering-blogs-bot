@@ -8,7 +8,7 @@ import cron from 'node-cron'; // Import node-cron here
 
 import { sendDailyBlog } from './utils/send-daily-blog.controller';
 
-// const MINUTE = 1000 * 60;
+const MINUTE = 1000 * 60;
 
 const app: Express = express();
 
@@ -39,7 +39,7 @@ if (ENV.NODE_ENV === 'production') {
 
 setInterval(() => {
   axios.get(`${ENV.BASE_URL}${ENV.NODE_ENV === 'production' ? '' : `:${ENV.PORT}`}/keep-me-alive`);
-}, 1000); // Logs message every 10 minutes
+}, MINUTE * 5); // Logs message every 5 minutes
 
 // Start the Express server
 app.listen(PORT, () => {
