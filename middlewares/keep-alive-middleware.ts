@@ -1,6 +1,6 @@
 const MINUTE = 1000 * 60;
 
-export function keepAliveMiddleware() {
+export const keepAliveMiddleware = () => {
   // This middleware starts an interval which does nothing, just to keep the server alive
   const interval = setInterval(() => {
     console.log('Keeping server alive...');
@@ -14,6 +14,4 @@ export function keepAliveMiddleware() {
 
     next(); // Proceed to the next middleware or route handler
   };
-}
-
-module.exports = keepAliveMiddleware;
+};
