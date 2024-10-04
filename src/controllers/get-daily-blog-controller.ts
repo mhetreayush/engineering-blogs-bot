@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+
 import { sendDailyBlog } from './send-daily-blog';
 
 export const getDailyBlogController = async (req: Request, res: Response) => {

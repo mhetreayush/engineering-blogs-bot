@@ -1,6 +1,6 @@
 // whatsappController.js
-import axios from 'axios';
 import { WHATSAPP_API_CREDENTIALS } from '@src/constants/env';
+import axios from 'axios';
 
 const { WHATSAPP_API_ACCESS_TOKEN, WHATSAPP_API_PHONE_NUMBER_ID } = WHATSAPP_API_CREDENTIALS;
 

@@ -1,11 +1,12 @@
 import { ENV } from '@src/constants/env';
-import { keepAliveMiddleware } from '@src/middlewares/keep-alive-middleware';
 import { blogRouter } from '@src/routes/blog-router';
 import bodyParser from 'body-parser';
-import express from 'express';
 import { Express } from 'express';
+import express from 'express';
 import cron from 'node-cron'; // Import node-cron here
+
 import { sendDailyBlog } from './controllers/send-daily-blog';
+import { keepServerAlive } from './utils/keep-server-alive';
 
 const app: Express = express();
 
@@ -13,11 +14,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(keepAliveMiddleware());
 
 const { PORT, BASE_URL } = ENV;
 
 app.use(blogRouter);
+
+keepServerAlive();
 
 // Schedule the job to run at 7:30 AM IST every day
 cron.schedule('30 1 * * *', () => {

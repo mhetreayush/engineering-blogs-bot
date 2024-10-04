@@ -1,4 +1,5 @@
 import { WHATSAPP_RECIPIENT_NUMBER } from '@src/constants/env';
+
 import { getRandomBlog } from './get-random-blog';
 import { sendWhatsAppMessage } from './send-whatsapp-message';
 
