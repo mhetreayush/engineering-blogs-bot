@@ -10,3 +10,10 @@ export const ENV = {
   KV_URL: process.env.KV_URL ?? '',
   BASE_URL: process.env.BASE_URL ?? 'http://localhost',
 };
+
+export const WHATSAPP_API_CREDENTIALS = {
+  WHATSAPP_API_ACCESS_TOKEN: process.env.WHATSAPP_API_ACCESS_TOKEN ?? '',
+  WHATSAPP_API_PHONE_NUMBER_ID: process.env.WHATSAPP_API_PHONE_NUMBER_ID ?? '',
+};
+
+export const WHATSAPP_RECIPIENT_NUMBER = process.env.WHATSAPP_RECIPIENT_NUMBER ?? '';

@@ -2,7 +2,7 @@ import { READ_KEY, UNREAD_KEY } from '@src/constants/qv-keys';
 import { kvClient } from '@src/lib/vercel-kv';
 import { Blog } from '@src/types/blog';
 
-async function getRandomBlog() {
+export async function getRandomBlog() {
   // Fetch unread and read blogs in parallel
   const [unreadBlogs, readBlogs] = (await Promise.all([kvClient.get(UNREAD_KEY), kvClient.get(READ_KEY)])) as [Blog[] | null, Blog[] | null];
 
