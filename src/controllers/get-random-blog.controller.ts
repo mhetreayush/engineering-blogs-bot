@@ -1,4 +1,4 @@
-import { READ_KEY, UNREAD_KEY } from '@src/constants/qv-keys';
+import { READ_KEY, UNREAD_KEY } from '@src/constants/key-value-store-keys';
 import { kvClient } from '@src/lib/vercel-kv';
 import { Blog } from '@src/types/blog';
 

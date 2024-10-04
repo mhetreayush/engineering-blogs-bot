@@ -5,8 +5,8 @@ import { Express } from 'express';
 import express from 'express';
 import cron from 'node-cron'; // Import node-cron here
 
-import { sendDailyBlog } from './controllers/send-daily-blog';
 import { keepServerAlive } from './utils/keep-server-alive';
+import { sendDailyBlog } from './utils/send-daily-blog.controller';
 
 const app: Express = express();
 

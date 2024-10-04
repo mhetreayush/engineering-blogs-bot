@@ -1,6 +1,6 @@
-import { addBlogController } from '@src/controllers/add-blog';
-import { getDailyBlogController } from '@src/controllers/get-daily-blog-controller';
-import { getRandomBlogController } from '@src/controllers/get-random-blog';
+import { addBlogController } from '@src/controllers/add-blog.controller';
+import { getDailyBlogController } from '@src/controllers/get-daily-blog.controller';
+import { getRandomBlogController } from '@src/controllers/get-random-blog.controller';
 import { Router } from 'express';
 
 const router = Router();
