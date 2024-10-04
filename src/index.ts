@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import { Express, Request, Response } from 'express';
 import { kvClient } from '@lib/vercel-kv';
+import { keepAliveMiddleware } from '@middlewares/keep-alive-middleware';
 
 const app: Express = express();
 

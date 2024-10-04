@@ -1,6 +1,6 @@
 const MINUTE = 1000 * 60;
 
-function keepAliveMiddleware() {
+export function keepAliveMiddleware() {
   // This middleware starts an interval which does nothing, just to keep the server alive
   const interval = setInterval(() => {
     console.log('Keeping server alive...');
