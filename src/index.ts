@@ -9,6 +9,7 @@ const app: Express = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(keepAliveMiddleware());
 
 const { PORT, BASE_URL } = ENV;
 
