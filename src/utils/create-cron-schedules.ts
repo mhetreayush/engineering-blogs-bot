@@ -17,8 +17,8 @@ const CRON_TIMES = [
     cronValue: '00 16 * * *', // 4:00 PM IST
   },
   {
-    description: 'Every day at 9:30 PM IST',
-    cronValue: '30 21 * * *', // 9:30 PM IST
+    description: 'Every day at 9:45 PM IST',
+    cronValue: '45 21 * * *', // 9:45 PM IST
   },
 ];
 
