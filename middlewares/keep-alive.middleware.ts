@@ -1,8 +1,10 @@
+const MINUTE = 1000 * 60;
+
 function keepAliveMiddleware() {
   // This middleware starts an interval which does nothing, just to keep the server alive
   const interval = setInterval(() => {
     console.log('Keeping server alive...');
-  }, 10000); // Logs message every 10 seconds, adjust this interval as needed
+  }, MINUTE * 10); // Logs message every 10 seconds, adjust this interval as needed
 
   return (req, res, next) => {
     // Add cleanup if needed when the process is terminated
