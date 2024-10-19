@@ -1,10 +1,20 @@
 import cron from 'node-cron';
 
-import { sendDailyBlog } from './send-daily-blog.controller';
+import { sendDailyBlog } from './send-daily-blog';
+import { sendDailyRemainderToInteract } from './send-daily-reminder-to-interact';
 
 const scheduleBlogCron = () => {
   console.log('Running scheduled task to send WhatsApp message...');
   sendDailyBlog();
+};
+
+const scheduleRemainderCron = () => {
+  console.log('Scheduled task to send daily remainder to interact with the bot.');
+
+  // send a message at 8 pm ist asking to interact with the bot.
+  cron.schedule('00 20 * * *', sendDailyRemainderToInteract, {
+    timezone: 'Asia/Kolkata',
+  });
 };
 
 const CRON_TIMES = [
@@ -29,4 +39,6 @@ export const createCronSchedules = () => {
       timezone: 'Asia/Kolkata',
     });
   });
+
+  scheduleRemainderCron();
 };

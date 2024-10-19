@@ -2,6 +2,7 @@ import { addBlogController } from '@src/controllers/add-blog.controller';
 import { getDailyBlogController } from '@src/controllers/get-daily-blog.controller';
 import { getRandomBlogController } from '@src/controllers/get-random-blog.controller';
 import { resetBlogsController } from '@src/controllers/reset-blogs.controller';
+import { sendDailyInteractionReminderController } from '@src/controllers/send-daily-interaction-reminder';
 import { Router } from 'express';
 
 const router = Router();
@@ -11,5 +12,6 @@ router.get('/get-daily-blog', getDailyBlogController);
 
 router.post('/add-blog', addBlogController);
 router.post('/reset-blogs', resetBlogsController);
+router.post('/interaction-reminder', sendDailyInteractionReminderController);
 
 export { router as blogRouter };
