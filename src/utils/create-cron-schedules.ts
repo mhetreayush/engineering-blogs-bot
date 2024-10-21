@@ -1,11 +1,11 @@
 import cron from 'node-cron';
 
-import { sendDailyBlog } from './send-daily-blog';
 import { sendDailyRemainderToInteract } from './send-daily-reminder-to-interact';
+import { getUnsentLinkFromEachDocument } from './send-scheduled-blog';
 
 const scheduleBlogCron = () => {
+  getUnsentLinkFromEachDocument();
   console.log('Running scheduled task to send WhatsApp message...');
-  sendDailyBlog();
 };
 
 const scheduleRemainderCron = () => {

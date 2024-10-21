@@ -1,12 +1,12 @@
 {
   "name": "engineering-blogs-bot",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "eslint:fix": "eslint --fix",
-    "start": "node dist/index.js",
+    "start": "node dist/server.js",
     "start:dev": "nodemon",
-    "start:prod": "node -r ts-node/register -r tsconfig-paths/register ./dist/index.js",
+    "start:prod": "node -r ts-node/register -r tsconfig-paths/register ./dist/server.js",
     "dev": "yarn start:dev",
     "build": "npm run clean && tsc --build ",
     "type-check": "tsc --noEmit",
@@ -40,11 +40,11 @@
     "vercel": "^37.6.1"
   },
   "dependencies": {
-    "@vercel/kv": "^3.0.0",
     "axios": "^1.7.7",
     "body-parser": "^1.20.3",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
+    "mongoose": "^8.7.2",
     "node-cron": "^3.0.3",
     "tsconfig-paths": "^4.2.0"
   }
