@@ -26,7 +26,7 @@ export const getUnsentLinkFromEachDocument = async () => {
       });
     });
 
-    await Promise.all(userMessagesPromise);
+    await Promise.allSettled(userMessagesPromise);
 
     const markAllAsSentPromise = result.map(async (link) => {
       await LinkModel.updateOne({ _id: link._id }, { is_sent: true });
