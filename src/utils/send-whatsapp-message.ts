@@ -6,7 +6,7 @@ const { WHATSAPP_API_ACCESS_TOKEN, WHATSAPP_API_PHONE_NUMBER_ID } = WHATSAPP_API
 
 // Function to send a WhatsApp message
 export const sendWhatsAppMessage = async ({ recipient_number, message }: { recipient_number: string; message: string }) => {
-  const url = `https://graph.facebook.com/v13.0/${WHATSAPP_API_PHONE_NUMBER_ID}/messages`;
+  const url = `https://graph.facebook.com/v20.0/${WHATSAPP_API_PHONE_NUMBER_ID}/messages`;
 
   const data = {
     messaging_product: 'whatsapp',

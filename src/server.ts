@@ -26,6 +26,10 @@ const initializeApp = async () => {
   app.use(API_PREFIX, whatsappRouter);
   app.use(API_PREFIX, userAuthRouter);
 
+  app.get('/', (req, res) => {
+    res.send('Hello World!');
+  });
+
   app.get(`${API_PREFIX}/keep-me-alive`, (req, res) => {
     const now = new Date();
     const message = `I am alive! ${now.toISOString()}`;

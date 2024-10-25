@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongo
+      - redis
+    environment:
+      - PORT=3000
+      - REDIS_BASE_URL=redis://redis:6379
+      - BASE_URL=http://localhost:3000
+      - MONGODB_URI=mongodb://mongo:27017/revisit-dev-db
+      # This token is for dev account, hence, it is safe to share.
+      - WHATSAPP_API_ACCESS_TOKEN=EAAXoYES6IEEBO8eJMKZCMURIcVrjoQMcvimFGmlN1Y2fkrc2VcSmCLXXDQ9H5b29HOZBLPA5QmLuwEgsoYqkXYgRn3TfeTI9qxntdVb1ntVTsQI4eTSwMb4DnzIypOtIZBMJ1Hs7g5w10BLQ6sJCNaKMfv2rEXHVRWd77LB5RiJrCuOJkJ53IJ37a2X2n8uTgZDZD
+      # This is the phone number id for the dev account, hence, it is safe to share.
+      - WHATSAPP_API_PHONE_NUMBER_ID=500615683125564
+    volumes:
+      - .:/app # Maps the current directory to /app in the container
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    environment:
+      - MONGO_INITDB_DATABASE=revisit-dev-db
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+  cloudflared:
+    image: cloudflare/cloudflared
+    command: tunnel --url http://app:3000 --hostname revisit-dev.ayushm.in
+    depends_on:
+      - app
+    restart: unless-stopped
