@@ -27,7 +27,7 @@ const initializeApp = async () => {
   app.use(API_PREFIX, userAuthRouter);
 
   app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Hello World! from');
   });
 
   app.get(`${API_PREFIX}/keep-me-alive`, (req, res) => {

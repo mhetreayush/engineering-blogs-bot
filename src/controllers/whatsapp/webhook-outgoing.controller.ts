@@ -93,7 +93,7 @@ export const whatsappWebhookOutgoingController = async (req: Request, res: Respo
     if (!isValidHyperlink(link)) {
       await sendWhatsAppMessage({
         recipient_number: phoneNumber,
-        message: `Invalid link. Please send a valid link.`,
+        message: `Invalid link. Please send a valid link. from mac`,
       });
       res.sendStatus(200);
       return;

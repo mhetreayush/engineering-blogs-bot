@@ -6,7 +6,7 @@ services:
       - '3000:3000'
     depends_on:
       - mongo
-      - redis
+      # - redis
     environment:
       - PORT=3000
       - REDIS_BASE_URL=redis://redis:6379
@@ -24,10 +24,10 @@ services:
       - '27017:27017'
     environment:
       - MONGO_INITDB_DATABASE=revisit-dev-db
-  redis:
-    image: redis
-    ports:
-      - '6379:6379'
+  # redis:
+  #   image: redis
+  #   ports:
+  #     - '6379:6379'
   cloudflared:
     image: cloudflare/cloudflared
     command: tunnel --url http://app:3000 --hostname revisit-dev.ayushm.in
