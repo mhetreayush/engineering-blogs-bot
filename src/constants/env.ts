@@ -7,6 +7,10 @@ export const ENV = {
   BASE_URL: process.env.BASE_URL ?? 'http://localhost',
   NODE_ENV: process.env.NODE_ENV ?? 'development',
   MONGO_DB_URI: process.env.MONGO_DB_URI ?? '',
+  REDIS_PASSWORD: process.env.REDIS_PASSWORD ?? '',
+  REDIS_HOST: process.env.REDIS_HOST ?? '',
+  REDIS_PORT: (process.env.REDIS_PORT ?? 3002) as unknown as number,
+  REDIS_BASE_URL: process.env.REDIS_BASE_URL ?? 'http://localhost',
 };
 
 export const WHATSAPP_API_CREDENTIALS = {
