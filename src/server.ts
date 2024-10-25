@@ -5,6 +5,7 @@ import { Express } from 'express';
 import express from 'express';
 import mongoose from 'mongoose';
 
+import { redisClientSetup } from './lib/redis-client';
 import { whatsappRouter } from './routes/whatsapp-router';
 import { createCronSchedules } from './utils/create-cron-schedules';
 import { keepServerAlive } from './utils/keep-server-alive';
@@ -32,11 +33,13 @@ app.get(`${API_PREFIX}/keep-me-alive`, (req, res) => {
 
 createCronSchedules(); // Call the function to create cron schedules
 
+redisClientSetup();
+
 keepServerAlive();
 
 // Start the Express server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${BASE_URL}:${PORT}`);
+  console.log(`Server running on port ${BASE_URL}`);
 });
 
 mongoose.connect(ENV.MONGO_DB_URI);
