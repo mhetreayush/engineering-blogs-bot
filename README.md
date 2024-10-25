@@ -1,1 +1,1 @@
-# engineering-blogs-bot
+# revisit-bot
