@@ -6,6 +6,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 import { redisClientSetup } from './lib/redis-client';
+import { userAuthRouter } from './routes/user-auth';
 import { whatsappRouter } from './routes/whatsapp-router';
 import { createCronSchedules } from './utils/create-cron-schedules';
 import { keepServerAlive } from './utils/keep-server-alive';
@@ -23,6 +24,7 @@ const { PORT, BASE_URL } = ENV;
 
 app.use(API_PREFIX, linksRouter);
 app.use(API_PREFIX, whatsappRouter);
+app.use(API_PREFIX, userAuthRouter);
 
 app.get(`${API_PREFIX}/keep-me-alive`, (req, res) => {
   const now = new Date();
