@@ -46,6 +46,7 @@
     "express": "^4.21.0",
     "mongoose": "^8.7.2",
     "node-cron": "^3.0.3",
+    "redis": "^4.7.0",
     "tsconfig-paths": "^4.2.0"
   }
 }
